@@ -182,9 +182,9 @@
         /* Pulsing Urgency Banner */
         .urgency-banner {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             align-items: center;
-            gap: 8px;
+            gap: 15px;
             padding: 18px 24px;
             background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(34, 197, 94, 0.1) 100%);
             border: 1px solid var(--primary);
@@ -224,15 +224,23 @@
         }
         
         .urgency-icon {
-            font-size: 28px;
+            font-size: 32px;
             animation: lightning 2s ease-in-out infinite;
             position: relative;
             z-index: 1;
+            flex-shrink: 0;
         }
         
         @keyframes lightning {
             0%, 100% { opacity: 1; transform: scale(1); }
             50% { opacity: 0.6; transform: scale(1.1); }
+        }
+        
+        .urgency-content {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            flex: 1;
         }
         
         .urgency-main {
@@ -244,6 +252,7 @@
             position: relative;
             z-index: 1;
             text-transform: uppercase;
+            line-height: 1.2;
         }
         
         .urgency-sub {
@@ -253,6 +262,7 @@
             letter-spacing: 0.3px;
             position: relative;
             z-index: 1;
+            line-height: 1.3;
         }
         
         .stats {
@@ -538,15 +548,21 @@
         }
         
         .physical-ai {
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             font-weight: 500;
             color: var(--text-primary);
             margin-bottom: 20px;
             line-height: 1.6;
+            letter-spacing: 0.5px;
         }
         
         .physical-ai strong {
             color: var(--primary);
+            font-weight: 700;
+        }
+        
+        .tesla-tagline {
+            color: var(--text-primary) !important;
         }
         
         .footer-links {
@@ -583,6 +599,15 @@
             
             .tagline {
                 font-size: 1rem;
+            }
+            
+            .urgency-banner {
+                padding: 16px 20px;
+                gap: 12px;
+            }
+            
+            .urgency-icon {
+                font-size: 28px;
             }
             
             .urgency-main {
@@ -623,14 +648,16 @@
             
             <p class="tagline">
                 Defense needs autonomous off-roaders. Agriculture needs labor and efficiency. 
-                We're building the platform that solves all at <strong>1/4 the cost</strong> of every competitor. 
+                We have built the <strong>modular platform</strong> that solves all at <strong>1/4 the cost</strong> of every competitor. 
                 <strong>Field tested, hardware proven.</strong>
             </p>
             
             <div class="urgency-banner">
                 <div class="urgency-icon">⚡</div>
-                <div class="urgency-main">Angel Round Open NOW</div>
-                <div class="urgency-sub">Bridge to pre-seed at higher valuation • Closing fast</div>
+                <div class="urgency-content">
+                    <div class="urgency-main">Angel Round Open NOW</div>
+                    <div class="urgency-sub">Bridge to pre-seed at higher valuation • Closing fast</div>
+                </div>
             </div>
             
             <div class="stats">
@@ -702,31 +729,33 @@
                 <h3 class="why-title">Why Join Now?</h3>
                 <ul class="why-list">
                     <li>U.S. Congressional Recognition validates technology and market need</li>
-                    <li>$400K LOI pipeline built in 90 days—proven customer demand across industries</li>
+                    <li>$400K LOI pipeline built in 90 days: proven customer demand across industries</li>
+                    <li>Articulated platform outperforms skid-steer competitors in real soft-terrain conditions where others fail</li>
+                    <li>GPS-denied navigation capability: essential for real-world off-road deployment</li>
+                    <li>Modular architecture enables rapid iteration and multi-sector manufacturing scale</li>
                     <li>Advisor: Mark DeSantis (ex-CEO of Bloomfield Robotics)</li>
                     <li>Business Advisor: Mark Theuerkauf (ex AGCO Director, ex John Deere 22 years, CNH)</li>
-                    <li>CES Showcase & World Ag Expo exposure—credibility with commercial buyers</li>
-                    <li>Military Demining advanced to Stage 2—defense application validation</li>
-                    <li>Launched through global agriculture robotics organization—industry backing</li>
+                    <li>CES Showcase & World Ag Expo exposure: credibility with commercial buyers</li>
+                    <li>Military Demining advanced to Stage 2: defense application validation</li>
+                    <li>Launched through global agriculture robotics organization: industry backing</li>
                     <li>Y Combinator identified "reducing spraying with AI/robotics" as critical problem</li>
-                    <li>PM Modi's pesticide reduction policy—opens massive India market (1.4B people)</li>
-                    <li>Hardware de-risked (3,000+ hours tested)—capital goes to software, not R&D</li>
-                    <li>Team built autonomy before—not learning, executing proven playbook</li>
-                    <li>Angel round open NOW—pre-seed coming soon at higher valuation, best terms today</li>
+                    <li>PM Modi's pesticide reduction policy: opens massive India market (1.4B people)</li>
+                    <li>Hardware de-risked (3,000+ hours tested): capital goes to software, not R&D</li>
+                    <li>Team built autonomy before: not learning, executing proven playbook</li>
+                    <li>Angel round open NOW: pre-seed coming soon at higher valuation, best terms today</li>
                 </ul>
             </div>
             
             <div class="funding-box">
-                <div class="funding-amount">$500K Angel Round</div>
+                <div class="funding-amount">$500K Bridge to Pre-Seed Round</div>
                 <div class="funding-details">
-                    Bridge to pre-seed at higher valuation<br>
-                    Best terms available • Closing fast<br>
-                    Congressional-validated technology
+                    Best terms available. Closing fast.
                 </div>
             </div>
             
             <p class="physical-ai">
-                <strong>The next frontier is in physical AI.</strong> Join us to dominate physical AI for off-road.
+                <strong>THE NEXT FRONTIER IS IN PHYSICAL AI. JOIN US TO DOMINATE PHYSICAL AI FOR OFF-ROAD ROBOTICS.</strong><br>
+                <strong class="tesla-tagline">ALL-TERRAIN MODULAR TESLA FOR ROBOTICS</strong>
             </p>
             
             <div class="footer-links">
