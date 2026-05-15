@@ -3,8 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AUTOGENBOT - VIPIN K V</title>
-    <meta name="description" content="Physical ai modular platforms for offroad application ag, defense, mining. Congressional Recognition-validated.">
+    <title>AUTOGENBOT - Democratizing Outdoor Autonomy</title>
+    <meta name="description" content="Field-tested autonomous platforms for agriculture and defense. Angel round open now.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
         * {
             margin: 0;
@@ -12,257 +17,722 @@
             box-sizing: border-box;
         }
         
+        :root {
+            --primary: #10b981;
+            --primary-dark: #059669;
+            --accent: #22c55e;
+            --bg-dark: #0a0a0a;
+            --bg-card: #141414;
+            --text-primary: #ffffff;
+            --text-secondary: #a3a3a3;
+            --border: #1f1f1f;
+            
+            --font-display: 'Goldman', system-ui, sans-serif;
+            --font-body: 'Inter', system-ui, sans-serif;
+        }
+        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: var(--font-body);
+            background: var(--bg-dark);
+            color: var(--text-primary);
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-        
-        .container {
-            max-width: 500px;
-            width: 100%;
-            background: white;
-            border-radius: 20px;
-            padding: 40px 30px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-        }
-        
-        .header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        
-        .logo {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 50%;
-            margin: 0 auto 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 36px;
-            font-weight: bold;
-            color: white;
-        }
-        
-        h1 {
-            font-size: 28px;
-            color: #1a202c;
-            margin-bottom: 8px;
-        }
-        
-        .tagline {
-            font-size: 16px;
-            color: #4a5568;
-            font-weight: 500;
-            margin-bottom: 10px;
-        }
-        
-        .subtitle {
-            font-size: 14px;
-            color: #718096;
             line-height: 1.6;
-        }
-        
-        .badges {
-            display: flex;
-            gap: 8px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 15px;
-        }
-        
-        .badge {
-            background: #f7fafc;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            color: #4a5568;
-            border: 1px solid #e2e8f0;
-        }
-        
-        .links {
-            margin-top: 30px;
-        }
-        
-        .link-button {
-            display: block;
-            width: 100%;
-            padding: 16px 24px;
-            margin-bottom: 12px;
-            background: white;
-            border: 2px solid #e2e8f0;
-            border-radius: 12px;
-            text-decoration: none;
-            color: #1a202c;
-            font-weight: 600;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            text-align: center;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
             position: relative;
         }
         
-        .link-button:hover {
-            border-color: #667eea;
-            background: #f7fafc;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+        /* Wireframe/Blueprint Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(16, 185, 129, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(16, 185, 129, 0.02) 1px, transparent 1px),
+                linear-gradient(rgba(16, 185, 129, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(16, 185, 129, 0.04) 1px, transparent 1px),
+                repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(16, 185, 129, 0.01) 35px, rgba(16, 185, 129, 0.01) 70px);
+            background-size: 
+                20px 20px,
+                20px 20px,
+                100px 100px,
+                100px 100px,
+                70px 70px;
+            z-index: -2;
+            opacity: 0.6;
         }
         
-        .link-button.primary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border: none;
-            color: white;
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                radial-gradient(circle at 10% 10%, transparent 30%, rgba(16, 185, 129, 0.02) 30%, rgba(16, 185, 129, 0.02) 30.5%, transparent 30.5%),
+                radial-gradient(circle at 90% 10%, transparent 30%, rgba(16, 185, 129, 0.02) 30%, rgba(16, 185, 129, 0.02) 30.5%, transparent 30.5%),
+                radial-gradient(circle at 10% 90%, transparent 30%, rgba(16, 185, 129, 0.02) 30%, rgba(16, 185, 129, 0.02) 30.5%, transparent 30.5%),
+                radial-gradient(circle at 90% 90%, transparent 30%, rgba(16, 185, 129, 0.02) 30%, rgba(16, 185, 129, 0.02) 30.5%, transparent 30.5%);
+            background-size: 200px 200px;
+            background-repeat: no-repeat;
+            z-index: -2;
+            opacity: 0.4;
         }
         
-        .link-button.primary:hover {
-            background: linear-gradient(135deg, #5568d3 0%, #653a8b 100%);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        .bg-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.08;
+            background: 
+                radial-gradient(circle at 20% 50%, var(--primary) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, var(--accent) 0%, transparent 40%),
+                radial-gradient(circle at 50% 20%, var(--primary) 0%, transparent 30%);
+            animation: gradientShift 15s ease infinite;
         }
         
-        .link-button::before {
+        @keyframes gradientShift {
+            0%, 100% { 
+                transform: translate(0, 0) scale(1) rotate(0deg);
+                opacity: 0.08;
+            }
+            33% { 
+                transform: translate(30px, -20px) scale(1.05) rotate(2deg);
+                opacity: 0.12;
+            }
+            66% { 
+                transform: translate(-20px, 30px) scale(0.98) rotate(-2deg);
+                opacity: 0.1;
+            }
+        }
+        
+        .bg-gradient::after {
             content: '';
             position: absolute;
-            left: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 24px;
-            height: 24px;
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            animation: scan 8s linear infinite;
+            opacity: 0.3;
         }
         
-        .link-button.calendar::before {
-            content: '📅';
+        @keyframes scan {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(100vh); }
         }
         
-        .link-button.linkedin::before {
-            content: '💼';
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
         
-        .link-button.deck::before {
-            content: '📊';
+        header {
+            padding: 50px 0 40px;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 40px;
         }
         
-        .link-button.video::before {
-            content: '🎥';
+        .logo {
+            font-family: var(--font-display);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 5px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            text-shadow: 0 0 10px rgba(16, 185, 129, 0.2);
         }
         
-        .link-button.email::before {
-            content: '✉️';
+        h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.2rem, 8vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            letter-spacing: -0.01em;
+            color: var(--text-primary);
+            text-shadow: 0 0 30px rgba(16, 185, 129, 0.15);
         }
         
-        .footer {
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid #e2e8f0;
+        .tagline {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            font-weight: 300;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+        
+        .tagline strong {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        /* Pulsing Urgency Banner */
+        .urgency-banner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            padding: 18px 24px;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(34, 197, 94, 0.1) 100%);
+            border: 1px solid var(--primary);
+            border-radius: 10px;
+            margin: 25px auto;
+            max-width: 600px;
+            animation: urgencyPulse 2.5s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .urgency-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(16, 185, 129, 0.1), transparent);
+            animation: shimmer 3s linear infinite;
+        }
+        
+        @keyframes urgencyPulse {
+            0%, 100% { 
+                transform: scale(1); 
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4);
+            }
+            50% { 
+                transform: scale(1.02); 
+                box-shadow: 0 0 20px 0 rgba(16, 185, 129, 0.3);
+            }
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        
+        .urgency-icon {
+            font-size: 28px;
+            animation: lightning 2s ease-in-out infinite;
+            position: relative;
+            z-index: 1;
+        }
+        
+        @keyframes lightning {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.1); }
+        }
+        
+        .urgency-main {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 0.5px;
+            position: relative;
+            z-index: 1;
+            text-transform: uppercase;
+        }
+        
+        .urgency-sub {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            letter-spacing: 0.3px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .stat {
             text-align: center;
         }
         
-        .footer-text {
-            font-size: 13px;
-            color: #718096;
+        .stat-value {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 5px;
+            text-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .stat:hover .stat-value {
+            transform: scale(1.05);
+            text-shadow: 0 0 30px rgba(16, 185, 129, 0.5);
+        }
+        
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .badges {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 16px;
+            margin-top: 35px;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .badge {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 12px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .badge::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .badge:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .badge:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+            transform: translateY(-3px);
+            background: rgba(16, 185, 129, 0.05);
+        }
+        
+        .badge-icon {
+            font-size: 36px;
+            line-height: 1;
+            filter: drop-shadow(0 0 8px rgba(16, 185, 129, 0.3));
+            transition: all 0.3s ease;
+        }
+        
+        .badge:hover .badge-icon {
+            transform: scale(1.15);
+            filter: drop-shadow(0 0 15px rgba(16, 185, 129, 0.6));
+        }
+        
+        .badge-text {
+            font-size: 0.65rem;
+            line-height: 1.3;
+        }
+        
+        main {
+            padding: 30px 0 50px;
+        }
+        
+        .cta-primary {
+            display: block;
+            width: 100%;
+            padding: 22px 30px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-decoration: none;
+            text-align: center;
+            margin-bottom: 15px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .cta-primary:hover::before {
+            left: 100%;
+        }
+        
+        .cta-primary:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 12px 40px rgba(16, 185, 129, 0.5),
+                        0 0 30px rgba(16, 185, 129, 0.3);
+            background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
+        }
+        
+        .cta-subtitle {
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+        }
+        
+        .links {
+            display: grid;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .link-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .link-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--primary), var(--accent));
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .link-item:hover::before {
+            transform: scaleY(1);
+        }
+        
+        .link-item:hover {
+            border-color: var(--primary);
+            background: rgba(16, 185, 129, 0.05);
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15);
+        }
+        
+        .link-item:hover .link-icon {
+            transform: scale(1.2) rotate(5deg);
+        }
+        
+        .link-icon {
+            font-size: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        footer {
+            margin-top: 50px;
+            padding: 30px 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+        
+        .why-now {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 30px;
+            text-align: left;
+            transition: all 0.3s ease;
+        }
+        
+        .why-now:hover {
+            border-color: rgba(16, 185, 129, 0.3);
+            box-shadow: 0 0 30px rgba(16, 185, 129, 0.1);
+        }
+        
+        .why-title {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+            text-shadow: 0 0 15px rgba(16, 185, 129, 0.2);
+        }
+        
+        .why-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .why-list li {
+            padding: 8px 0 8px 25px;
+            position: relative;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+        
+        .why-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: 700;
+        }
+        
+        .funding-box {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        
+        .funding-amount {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+        
+        .funding-details {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
             line-height: 1.6;
         }
         
+        .physical-ai {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .physical-ai strong {
+            color: var(--primary);
+        }
+        
         .footer-links {
-            margin-top: 15px;
             display: flex;
-            gap: 15px;
+            gap: 20px;
             justify-content: center;
+            margin-top: 20px;
         }
         
         .footer-link {
-            color: #667eea;
+            color: var(--text-secondary);
             text-decoration: none;
-            font-size: 13px;
-            font-weight: 500;
+            font-size: 0.8rem;
+            transition: color 0.3s ease;
         }
         
         .footer-link:hover {
-            text-decoration: underline;
+            color: var(--primary);
         }
         
-        @media (max-width: 480px) {
-            .container {
-                padding: 30px 20px;
+        @media (max-width: 600px) {
+            .stats {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .stat-value {
+                font-size: 1.8rem;
             }
             
             h1 {
-                font-size: 24px;
+                font-size: 2rem;
             }
             
             .tagline {
-                font-size: 14px;
+                font-size: 1rem;
             }
             
-            .link-button {
-                font-size: 15px;
-                padding: 14px 20px;
+            .urgency-main {
+                font-size: 1.1rem;
+            }
+            
+            .urgency-sub {
+                font-size: 0.75rem;
+            }
+            
+            .badges {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+            
+            .badge {
+                padding: 14px 10px;
+            }
+            
+            .badge-icon {
+                font-size: 32px;
+            }
+            
+            .badge-text {
+                font-size: 0.6rem;
             }
         }
     </style>
 </head>
 <body>
+    <div class="bg-gradient"></div>
+    
     <div class="container">
-        <div class="header">
-            <div class="logo">AB</div>
-            <h1>AUTOGENBOT</h1>
-            <p class="tagline">All-terrain tesla on steroids for work</p>
-            <p class="subtitle">Vision-based autonomous platforms for agriculture, construction, and defense</p>
+        <header>
+            <div class="logo">AUTOGENBOT</div>
+            
+            <h1>Democratizing outdoor autonomy.<br>Starting with agriculture and defense.</h1>
+            
+            <p class="tagline">
+                Defense needs autonomous off-roaders. Agriculture needs labor and efficiency. 
+                We're building the platform that solves all at <strong>1/4 the cost</strong> of every competitor. 
+                <strong>Field tested, hardware proven.</strong>
+            </p>
+            
+            <div class="urgency-banner">
+                <div class="urgency-icon">⚡</div>
+                <div class="urgency-main">Angel Round Open NOW</div>
+                <div class="urgency-sub">Bridge to pre-seed at higher valuation • Closing fast</div>
+            </div>
+            
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-value">$400K</div>
+                    <div class="stat-label">LOI in 90 Days</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">3+</div>
+                    <div class="stat-label">Industries</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">3K+</div>
+                    <div class="stat-label">Hours Tested</div>
+                </div>
+            </div>
             
             <div class="badges">
-                <span class="badge">🏛️ Congressional Recognition</span>
-                <span class="badge">🎓 Draper University</span>
-                <span class="badge">📍 San Mateo, CA</span>
+                <div class="badge">
+                    <div class="badge-icon">🏛️</div>
+                    <div class="badge-text">U.S. Congressional Recognition</div>
+                </div>
+                <div class="badge">
+                    <div class="badge-icon">📱</div>
+                    <div class="badge-text">CES Showcase</div>
+                </div>
+                <div class="badge">
+                    <div class="badge-icon">🌾</div>
+                    <div class="badge-text">World Ag Expo</div>
+                </div>
+                <div class="badge">
+                    <div class="badge-icon">⚔️</div>
+                    <div class="badge-text">Military Demining Stage 2</div>
+                </div>
             </div>
-        </div>
+        </header>
         
-        <div class="links">
-            <!-- PRIMARY CTA: Book a Meeting -->
-            <a href="https://calendly.com/vipinvinay830/autogenbot_introduction" class="link-button primary calendar" target="_blank">
-                📅 &nbsp;&nbsp; Schedule a Meeting
+        <main>
+            <a href="https://calendly.com/vipin-autogenbot/30min" class="cta-primary" target="_blank">
+                📅 Schedule Call — Invest Now
             </a>
+            <p class="cta-subtitle">Get in at best terms before pre-seed round at higher valuation</p>
             
-            <!-- LinkedIn Profile -->
-            <a href="https://www.linkedin.com/in/vipin-k-v" class="link-button linkedin" target="_blank">
-                💼 &nbsp;&nbsp; Connect on LinkedIn
-            </a>
-            
-            <!-- Optional: Pitch Deck -->
-            <a href="https://docsend.com/v/5mj8g/autogenbot_pitch" class="link-button deck" target="_blank">
-                📊 &nbsp;&nbsp; View Pitch Deck
-            </a>
-            
-            <!-- Optional: Demo Video -->
-            <a href="https://youtu.be/0618XKFXwXg" class="link-button video" target="_blank">
-                🎥 &nbsp;&nbsp; Watch Demo Video
-            </a>
-            
-            <!-- Email Contact -->
-            <a href="mailto:vipin@air-bots.in" class="link-button email">
-                ✉️ &nbsp;&nbsp; vipin@air-bots.in
-            </a>
-        </div>
+            <div class="links">
+                <a href="https://www.linkedin.com/in/vipin-k-v/" class="link-item" target="_blank">
+                    <span class="link-icon">💼</span>
+                    <span>Connect on LinkedIn</span>
+                </a>
+                
+                <a href="https://docsend.com/v/5mj8g/autogenbot_pitch" class="link-item" target="_blank">
+                    <span class="link-icon">📊</span>
+                    <span>View Investor Deck</span>
+                </a>
+                
+                <a href="https://youtu.be/0618XKFXwXg" class="link-item" target="_blank">
+                    <span class="link-icon">🎥</span>
+                    <span>Platform Demo Video</span>
+                </a>
+                
+                <a href="mailto:vipin@air-bots.in" class="link-item">
+                    <span class="link-icon">✉️</span>
+                    <span>vipin@air-bots.in</span>
+                </a>
+            </div>
+        </main>
         
-        <div class="footer">
-            <p class="footer-text">
-                <strong>$500K Angel Round</strong> closing May 15, 2026<br>
-                $8M valuation cap • SAFE
+        <footer>
+            <div class="why-now">
+                <h3 class="why-title">Why Join Now?</h3>
+                <ul class="why-list">
+                    <li>U.S. Congressional Recognition validates technology and market need</li>
+                    <li>$400K LOI pipeline built in 90 days—proven customer demand across industries</li>
+                    <li>Advisor: Mark DeSantis (ex-CEO of Bloomfield Robotics)</li>
+                    <li>Business Advisor: Mark Theuerkauf (ex AGCO Director, ex John Deere 22 years, CNH)</li>
+                    <li>CES Showcase & World Ag Expo exposure—credibility with commercial buyers</li>
+                    <li>Military Demining advanced to Stage 2—defense application validation</li>
+                    <li>Launched through global agriculture robotics organization—industry backing</li>
+                    <li>Y Combinator identified "reducing spraying with AI/robotics" as critical problem</li>
+                    <li>PM Modi's pesticide reduction policy—opens massive India market (1.4B people)</li>
+                    <li>Hardware de-risked (3,000+ hours tested)—capital goes to software, not R&D</li>
+                    <li>Team built autonomy before—not learning, executing proven playbook</li>
+                    <li>Angel round open NOW—pre-seed coming soon at higher valuation, best terms today</li>
+                </ul>
+            </div>
+            
+            <div class="funding-box">
+                <div class="funding-amount">$500K Angel Round</div>
+                <div class="funding-details">
+                    Bridge to pre-seed at higher valuation<br>
+                    Best terms available • Closing fast<br>
+                    Congressional-validated technology
+                </div>
+            </div>
+            
+            <p class="physical-ai">
+                <strong>The next frontier is in physical AI.</strong> Join us to dominate physical AI for off-road.
             </p>
             
             <div class="footer-links">
-                <a href="https://autogenbots.com" class="footer-link" target="_blank">Website</a>
-                <a href="https://twitter.com/YOUR-TWITTER" class="footer-link" target="_blank">Twitter</a>
+                <a href="https://www.autogenbots.com" class="footer-link" target="_blank">www.autogenbots.com</a>
             </div>
-        </div>
+        </footer>
     </div>
 </body>
 </html>
