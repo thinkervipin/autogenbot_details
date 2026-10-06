@@ -1,767 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AUTOGENBOT - Democratizing Outdoor Autonomy</title>
-    <meta name="description" content="Field-tested autonomous platforms for agriculture and defense. Angel round open now.">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        :root {
-            --primary: #10b981;
-            --primary-dark: #059669;
-            --accent: #22c55e;
-            --bg-dark: #0a0a0a;
-            --bg-card: #141414;
-            --text-primary: #ffffff;
-            --text-secondary: #a3a3a3;
-            --border: #1f1f1f;
-            
-            --font-display: 'Goldman', system-ui, sans-serif;
-            --font-body: 'Inter', system-ui, sans-serif;
-        }
-        
-        body {
-            font-family: var(--font-body);
-            background: var(--bg-dark);
-            color: var(--text-primary);
-            min-height: 100vh;
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
-            position: relative;
-        }
-        
-        /* Wireframe/Blueprint Background */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(rgba(16, 185, 129, 0.02) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(16, 185, 129, 0.02) 1px, transparent 1px),
-                linear-gradient(rgba(16, 185, 129, 0.04) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(16, 185, 129, 0.04) 1px, transparent 1px),
-                repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(16, 185, 129, 0.01) 35px, rgba(16, 185, 129, 0.01) 70px);
-            background-size: 
-                20px 20px,
-                20px 20px,
-                100px 100px,
-                100px 100px,
-                70px 70px;
-            z-index: -2;
-            opacity: 0.6;
-        }
-        
-        body::after {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image:
-                radial-gradient(circle at 10% 10%, transparent 30%, rgba(16, 185, 129, 0.02) 30%, rgba(16, 185, 129, 0.02) 30.5%, transparent 30.5%),
-                radial-gradient(circle at 90% 10%, transparent 30%, rgba(16, 185, 129, 0.02) 30%, rgba(16, 185, 129, 0.02) 30.5%, transparent 30.5%),
-                radial-gradient(circle at 10% 90%, transparent 30%, rgba(16, 185, 129, 0.02) 30%, rgba(16, 185, 129, 0.02) 30.5%, transparent 30.5%),
-                radial-gradient(circle at 90% 90%, transparent 30%, rgba(16, 185, 129, 0.02) 30%, rgba(16, 185, 129, 0.02) 30.5%, transparent 30.5%);
-            background-size: 200px 200px;
-            background-repeat: no-repeat;
-            z-index: -2;
-            opacity: 0.4;
-        }
-        
-        .bg-gradient {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            opacity: 0.08;
-            background: 
-                radial-gradient(circle at 20% 50%, var(--primary) 0%, transparent 40%),
-                radial-gradient(circle at 80% 80%, var(--accent) 0%, transparent 40%),
-                radial-gradient(circle at 50% 20%, var(--primary) 0%, transparent 30%);
-            animation: gradientShift 15s ease infinite;
-        }
-        
-        @keyframes gradientShift {
-            0%, 100% { 
-                transform: translate(0, 0) scale(1) rotate(0deg);
-                opacity: 0.08;
-            }
-            33% { 
-                transform: translate(30px, -20px) scale(1.05) rotate(2deg);
-                opacity: 0.12;
-            }
-            66% { 
-                transform: translate(-20px, 30px) scale(0.98) rotate(-2deg);
-                opacity: 0.1;
-            }
-        }
-        
-        .bg-gradient::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--primary), transparent);
-            animation: scan 8s linear infinite;
-            opacity: 0.3;
-        }
-        
-        @keyframes scan {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(100vh); }
-        }
-        
-        .container {
-            max-width: 700px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        header {
-            padding: 50px 0 40px;
-            text-align: center;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 40px;
-        }
-        
-        .logo {
-            font-family: var(--font-display);
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 5px;
-            color: var(--text-secondary);
-            text-transform: uppercase;
-            margin-bottom: 25px;
-            text-shadow: 0 0 10px rgba(16, 185, 129, 0.2);
-        }
-        
-        h1 {
-            font-family: var(--font-display);
-            font-size: clamp(2.2rem, 8vw, 3.5rem);
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 20px;
-            letter-spacing: -0.01em;
-            color: var(--text-primary);
-            text-shadow: 0 0 30px rgba(16, 185, 129, 0.15);
-        }
-        
-        .tagline {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            font-weight: 300;
-            line-height: 1.6;
-            margin-bottom: 25px;
-        }
-        
-        .tagline strong {
-            color: var(--primary);
-            font-weight: 600;
-        }
-        
-        /* Pulsing Urgency Banner */
-        .urgency-banner {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            gap: 15px;
-            padding: 18px 24px;
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(34, 197, 94, 0.1) 100%);
-            border: 1px solid var(--primary);
-            border-radius: 10px;
-            margin: 25px auto;
-            max-width: 600px;
-            animation: urgencyPulse 2.5s ease-in-out infinite;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .urgency-banner::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(16, 185, 129, 0.1), transparent);
-            animation: shimmer 3s linear infinite;
-        }
-        
-        @keyframes urgencyPulse {
-            0%, 100% { 
-                transform: scale(1); 
-                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4);
-            }
-            50% { 
-                transform: scale(1.02); 
-                box-shadow: 0 0 20px 0 rgba(16, 185, 129, 0.3);
-            }
-        }
-        
-        @keyframes shimmer {
-            0% { transform: translate(-50%, -50%) rotate(0deg); }
-            100% { transform: translate(-50%, -50%) rotate(360deg); }
-        }
-        
-        .urgency-icon {
-            font-size: 32px;
-            animation: lightning 2s ease-in-out infinite;
-            position: relative;
-            z-index: 1;
-            flex-shrink: 0;
-        }
-        
-        @keyframes lightning {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.6; transform: scale(1.1); }
-        }
-        
-        .urgency-content {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-            flex: 1;
-        }
-        
-        .urgency-main {
-            font-family: var(--font-display);
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--primary);
-            letter-spacing: 0.5px;
-            position: relative;
-            z-index: 1;
-            text-transform: uppercase;
-            line-height: 1.2;
-        }
-        
-        .urgency-sub {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            letter-spacing: 0.3px;
-            position: relative;
-            z-index: 1;
-            line-height: 1.3;
-        }
-        
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin: 30px 0;
-        }
-        
-        .stat {
-            text-align: center;
-        }
-        
-        .stat-value {
-            font-family: var(--font-display);
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 5px;
-            text-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
-            transition: all 0.3s ease;
-        }
-        
-        .stat:hover .stat-value {
-            transform: scale(1.05);
-            text-shadow: 0 0 30px rgba(16, 185, 129, 0.5);
-        }
-        
-        .stat-label {
-            font-size: 0.75rem;
-            color: var(--text-secondary);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .badges {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 16px;
-            margin-top: 35px;
-            max-width: 650px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .badge {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-            padding: 16px 12px;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            font-size: 0.7rem;
-            font-weight: 600;
-            color: var(--text-secondary);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            text-align: center;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .badge::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--primary), transparent);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-        
-        .badge:hover::before {
-            transform: scaleX(1);
-        }
-        
-        .badge:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-            box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
-            transform: translateY(-3px);
-            background: rgba(16, 185, 129, 0.05);
-        }
-        
-        .badge-icon {
-            font-size: 36px;
-            line-height: 1;
-            filter: drop-shadow(0 0 8px rgba(16, 185, 129, 0.3));
-            transition: all 0.3s ease;
-        }
-        
-        .badge:hover .badge-icon {
-            transform: scale(1.15);
-            filter: drop-shadow(0 0 15px rgba(16, 185, 129, 0.6));
-        }
-        
-        .badge-text {
-            font-size: 0.65rem;
-            line-height: 1.3;
-        }
-        
-        main {
-            padding: 30px 0 50px;
-        }
-        
-        .cta-primary {
-            display: block;
-            width: 100%;
-            padding: 22px 30px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            border: none;
-            border-radius: 10px;
-            color: white;
-            font-family: var(--font-display);
-            font-size: 1.2rem;
-            font-weight: 700;
-            text-decoration: none;
-            text-align: center;
-            margin-bottom: 15px;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .cta-primary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s;
-        }
-        
-        .cta-primary:hover::before {
-            left: 100%;
-        }
-        
-        .cta-primary:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 12px 40px rgba(16, 185, 129, 0.5),
-                        0 0 30px rgba(16, 185, 129, 0.3);
-            background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
-        }
-        
-        .cta-subtitle {
-            text-align: center;
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            margin-bottom: 30px;
-        }
-        
-        .links {
-            display: grid;
-            gap: 10px;
-            margin-top: 20px;
-        }
-        
-        .link-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 16px 20px;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            text-decoration: none;
-            color: var(--text-primary);
-            font-size: 0.95rem;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .link-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 3px;
-            height: 100%;
-            background: linear-gradient(180deg, var(--primary), var(--accent));
-            transform: scaleY(0);
-            transition: transform 0.3s ease;
-        }
-        
-        .link-item:hover::before {
-            transform: scaleY(1);
-        }
-        
-        .link-item:hover {
-            border-color: var(--primary);
-            background: rgba(16, 185, 129, 0.05);
-            transform: translateX(5px);
-            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15);
-        }
-        
-        .link-item:hover .link-icon {
-            transform: scale(1.2) rotate(5deg);
-        }
-        
-        .link-icon {
-            font-size: 20px;
-            transition: transform 0.3s ease;
-        }
-        
-        footer {
-            margin-top: 50px;
-            padding: 30px 0;
-            border-top: 1px solid var(--border);
-            text-align: center;
-        }
-        
-        .why-now {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 25px;
-            margin-bottom: 30px;
-            text-align: left;
-            transition: all 0.3s ease;
-        }
-        
-        .why-now:hover {
-            border-color: rgba(16, 185, 129, 0.3);
-            box-shadow: 0 0 30px rgba(16, 185, 129, 0.1);
-        }
-        
-        .why-title {
-            font-family: var(--font-display);
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 15px;
-            text-shadow: 0 0 15px rgba(16, 185, 129, 0.2);
-        }
-        
-        .why-list {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .why-list li {
-            padding: 8px 0 8px 25px;
-            position: relative;
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            line-height: 1.5;
-        }
-        
-        .why-list li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--primary);
-            font-weight: 700;
-        }
-        
-        .funding-box {
-            text-align: center;
-            margin-bottom: 25px;
-        }
-        
-        .funding-amount {
-            font-family: var(--font-display);
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 8px;
-        }
-        
-        .funding-details {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-        
-        .physical-ai {
-            font-size: 1.3rem;
-            font-weight: 500;
-            color: var(--text-primary);
-            margin-bottom: 20px;
-            line-height: 1.6;
-            letter-spacing: 0.5px;
-        }
-        
-        .physical-ai strong {
-            color: var(--primary);
-            font-weight: 700;
-        }
-        
-        .tesla-tagline {
-            color: var(--text-primary) !important;
-        }
-        
-        .footer-links {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            margin-top: 20px;
-        }
-        
-        .footer-link {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.8rem;
-            transition: color 0.3s ease;
-        }
-        
-        .footer-link:hover {
-            color: var(--primary);
-        }
-        
-        @media (max-width: 600px) {
-            .stats {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            
-            .stat-value {
-                font-size: 1.8rem;
-            }
-            
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .tagline {
-                font-size: 1rem;
-            }
-            
-            .urgency-banner {
-                padding: 16px 20px;
-                gap: 12px;
-            }
-            
-            .urgency-icon {
-                font-size: 28px;
-            }
-            
-            .urgency-main {
-                font-size: 1.1rem;
-            }
-            
-            .urgency-sub {
-                font-size: 0.75rem;
-            }
-            
-            .badges {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 12px;
-            }
-            
-            .badge {
-                padding: 14px 10px;
-            }
-            
-            .badge-icon {
-                font-size: 32px;
-            }
-            
-            .badge-text {
-                font-size: 0.6rem;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AUTOGENBOT — Physical AI for Off-Road Machines</title>
+<meta name="description" content="Modular Physical AI platform for autonomous off-road mobility. Vision-first, GPS-denied autonomy on an articulated robotic base. Blueprint at The Engine.">
+<meta property="og:title" content="AUTOGENBOT — Physical AI for Off-Road Machines">
+<meta property="og:description" content="Modular, vision-first autonomy for orchards, demining, mining and construction.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --primary:#10b981;--primary-dark:#059669;--bg:#0a0a0a;--card:#141414;--card-2:#101010;
+  --text:#fff;--muted:#a3a3a3;--dim:#737373;--border:#222;
+  --display:'Goldman',system-ui,sans-serif;--body:'Inter',system-ui,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;z-index:-1;opacity:.7;
+  background-image:linear-gradient(rgba(16,185,129,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(16,185,129,.035) 1px,transparent 1px),
+  linear-gradient(rgba(16,185,129,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(16,185,129,.06) 1px,transparent 1px);
+  background-size:20px 20px,20px 20px,100px 100px,100px 100px}
+.glow{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.09;
+  background:radial-gradient(circle at 15% 20%,var(--primary) 0,transparent 38%),radial-gradient(circle at 85% 85%,var(--primary) 0,transparent 38%)}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px}
+a{color:inherit}
+
+header{padding:44px 0 36px;text-align:center;border-bottom:1px solid var(--border)}
+.logo{font-family:var(--display);font-size:12px;letter-spacing:6px;color:var(--muted);margin-bottom:18px}
+.badge{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;letter-spacing:.04em;color:var(--primary);
+  border:1px solid rgba(16,185,129,.35);background:rgba(16,185,129,.08);padding:6px 12px;border-radius:999px;margin-bottom:22px}
+.badge i{width:7px;height:7px;border-radius:50%;background:var(--primary);box-shadow:0 0 8px var(--primary)}
+h1{font-family:var(--display);font-size:clamp(2rem,7.5vw,3.3rem);line-height:1.08;margin-bottom:18px;text-wrap:balance}
+h1 em{font-style:normal;color:var(--primary)}
+.lede{color:var(--muted);font-size:clamp(1rem,2.6vw,1.12rem);max-width:600px;margin:0 auto;text-wrap:pretty}
+.lede b{color:var(--text);font-weight:600}
+
+.cta{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:28px}
+.btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:600;font-size:15px;padding:13px 20px;border-radius:10px;
+  border:1px solid var(--border);background:var(--card);transition:border-color .2s,transform .2s}
+.btn:hover{border-color:var(--primary);transform:translateY(-1px)}
+.btn.primary{background:var(--primary);color:#04120c;border-color:var(--primary)}
+.btn.primary:hover{background:var(--primary-dark)}
+
+section{padding:40px 0;border-bottom:1px solid var(--border)}
+.eyebrow{font-family:var(--display);font-size:12px;letter-spacing:4px;color:var(--primary);margin-bottom:10px}
+h2{font-family:var(--display);font-size:clamp(1.4rem,4.5vw,1.9rem);line-height:1.2;margin-bottom:14px;text-wrap:balance}
+p.body{color:var(--muted);max-width:640px}
+
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:22px}
+@media(min-width:620px){.stats{grid-template-columns:repeat(4,1fr)}}
+.stat{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 14px}
+.stat .n{font-family:var(--display);font-size:1.6rem;color:var(--primary);line-height:1.1}
+.stat .l{font-size:13px;color:var(--muted);margin-top:4px}
+
+.grid{display:grid;gap:12px;margin-top:20px}
+@media(min-width:620px){.grid.two{grid-template-columns:1fr 1fr}}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px}
+.card h3{font-size:16px;font-weight:600;margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.card h3 .tag{font-size:11px;font-weight:600;color:var(--primary);border:1px solid rgba(16,185,129,.35);padding:1px 7px;border-radius:999px}
+.card p{color:var(--muted);font-size:14.5px}
+
+.apps{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.chip{font-size:14px;padding:8px 14px;border-radius:999px;background:var(--card);border:1px solid var(--border);color:var(--muted)}
+.chip.on{color:var(--text);border-color:rgba(16,185,129,.5)}
+.chip.on::before{content:'● ';color:var(--primary)}
+
+.proof{list-style:none;margin-top:18px;display:grid;gap:8px}
+@media(min-width:620px){.proof{grid-template-columns:1fr 1fr}}
+.proof li{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;color:var(--muted);background:var(--card-2);border:1px solid var(--border);border-radius:10px;padding:12px 14px}
+.proof li::before{content:'';flex:none;width:7px;height:7px;margin-top:8px;border-radius:50%;background:var(--primary)}
+.proof b{color:var(--text);font-weight:600}
+
+.people{display:grid;gap:10px;margin-top:18px}
+@media(min-width:620px){.people{grid-template-columns:1fr 1fr}}
+.person{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 16px}
+.person .nm{font-weight:600}
+.person .rl{font-size:13.5px;color:var(--muted)}
+.sub{font-size:13px;color:var(--dim);margin-top:22px;letter-spacing:.04em;text-transform:uppercase}
+
+.closing{text-align:center;border-bottom:none;padding-bottom:28px}
+.closing p.body{margin:0 auto}
+footer{text-align:center;color:var(--dim);font-size:13px;padding:24px 0 44px}
+footer a{color:var(--muted);text-decoration:none}
+footer a:hover{color:var(--primary)}
+</style>
 </head>
 <body>
-    <div class="bg-gradient"></div>
-    
-    <div class="container">
-        <header>
-            <div class="logo">AUTOGENBOT</div>
-            
-            <h1>Democratizing outdoor autonomy.<br>Starting with agriculture and defense.</h1>
-            
-            <p class="tagline">
-                Defense needs autonomous off-roaders. Agriculture needs labor and efficiency. 
-                We have built the <strong>modular platform</strong> that solves all at <strong>1/4 the cost</strong> of every competitor. 
-                <strong>Field tested, hardware proven.</strong>
-            </p>
-            
-            <div class="urgency-banner">
-                <div class="urgency-icon">⚡</div>
-                <div class="urgency-content">
-                    <div class="urgency-main">Angel Round Open NOW</div>
-                    <div class="urgency-sub">Bridge to pre-seed at higher valuation • Closing in 10 days</div>
-                </div>
-            </div>
-            
-            <div class="stats">
-                <div class="stat">
-                    <div class="stat-value">$400K</div>
-                    <div class="stat-label">LOI in 90 Days</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-value">3+</div>
-                    <div class="stat-label">Industries</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-value">3K+</div>
-                    <div class="stat-label">Hours Tested</div>
-                </div>
-            </div>
-            
-            <div class="badges">
-                <div class="badge">
-                    <div class="badge-icon">🏛️</div>
-                    <div class="badge-text">U.S. Congressional Recognition</div>
-                </div>
-                <div class="badge">
-                    <div class="badge-icon">📱</div>
-                    <div class="badge-text">CES Showcase</div>
-                </div>
-                <div class="badge">
-                    <div class="badge-icon">🌾</div>
-                    <div class="badge-text">World Ag Expo</div>
-                </div>
-                <div class="badge">
-                    <div class="badge-icon">⚔️</div>
-                    <div class="badge-text">Military Demining Stage 2</div>
-                </div>
-            </div>
-        </header>
-        
-        <main>
-            <a href="https://calendly.com/vipinvinay830/autogenbot_introduction" class="cta-primary" target="_blank">
-                📅 Schedule Call — Invest Now
-            </a>
-            <p class="cta-subtitle">Get in at best terms before pre-seed round at higher valuation</p>
-            
-            <div class="links">
-                <a href="https://www.linkedin.com/in/vipin-k-v/" class="link-item" target="_blank">
-                    <span class="link-icon">💼</span>
-                    <span>Connect on LinkedIn</span>
-                </a>
-                
-                <a href="https://docsend.com/v/5mj8g/autogenbot_pitch" class="link-item" target="_blank">
-                    <span class="link-icon">📊</span>
-                    <span>View Investor Deck</span>
-                </a>
-                
-                <a href="https://youtu.be/0618XKFXwXg" class="link-item" target="_blank">
-                    <span class="link-icon">🎥</span>
-                    <span>Platform Demo Video</span>
-                </a>
-                
-                <a href="mailto:vipin@air-bots.in" class="link-item">
-                    <span class="link-icon">✉️</span>
-                    <span>vipin@air-bots.in</span>
-                </a>
-            </div>
-        </main>
-        
-        <footer>
-            <div class="why-now">
-                <h3 class="why-title">Why Join Now?</h3>
-                <ul class="why-list">
-                    <li>U.S. Congressional Recognition validates technology and market need</li>
-                    <li>$400K LOI pipeline built in 90 days: proven customer demand across industries</li>
-                    <li>Articulated platform outperforms skid-steer competitors in real soft-terrain conditions where others fail</li>
-                    <li>GPS-denied navigation capability: essential for real-world off-road deployment</li>
-                    <li>Modular architecture enables rapid iteration and multi-sector manufacturing scale</li>
-                    <li>Advisor: Mark DeSantis (ex-CEO of Bloomfield Robotics)</li>
-                    <li>Business Advisor: Mark Theuerkauf (ex AGCO Director, ex John Deere 22 years, CNH)</li>
-                    <li>CES Showcase & World Ag Expo exposure: credibility with commercial buyers</li>
-                    <li>Military Demining advanced to Stage 2: defense application validation</li>
-                    <li>Launched through global agriculture robotics organization: industry backing</li>
-                    <li>Y Combinator identified "reducing spraying with AI/robotics" as critical problem</li>
-                    <li>PM Modi's pesticide reduction policy: opens massive India market (1.4B people)</li>
-                    <li>Hardware de-risked (3,000+ hours tested): capital goes to productisation</li>
-                    <li>Team built autonomy before: not learning, executing proven playbook</li>
-                    <li>Angel round open NOW: pre-seed coming soon at higher valuation, best terms today</li>
-                </ul>
-            </div>
-            
-            <div class="funding-box">
-                <div class="funding-amount">$500K Bridge to Pre-Seed Round</div>
-                <div class="funding-details">
-                    Best terms available. Closing in 10 days
-                </div>
-            </div>
-            
-            <p class="physical-ai">
-                <strong>THE NEXT FRONTIER IS IN PHYSICAL AI. JOIN US TO DOMINATE PHYSICAL AI FOR OFF-ROAD ROBOTICS.</strong><br>
-                <strong class="tesla-tagline">ALL-TERRAIN MODULAR TESLA FOR ROBOTICS</strong>
-            </p>
-            
-            <div class="footer-links">
-                <a href="https://www.autogenbots.com" class="footer-link" target="_blank">www.autogenbots.com</a>
-            </div>
-        </footer>
-    </div>
+<div class="glow"></div>
+<div class="wrap">
+
+<header>
+  <div class="logo">AUTOGENBOT</div>
+  <div class="badge"><i></i>Blueprint at The Engine · Showcase 2026</div>
+  <h1>Physical AI for <em>off<em>off-road machines</em>#8209;road machines</em>.</h1>
+  <p class="lede">A <b>modular, articulated robotic platform</b> with <b>vision-first autonomy that works without GPS, RTK or LiDAR</b>. One base, many jobs: orchards first, then demining, mining and construction.</p>
+  <div class="cta">
+    <a class="btn primary" href="https://calendly.com/vipinvinay830/autogenbot_introduction" target="_blank" rel="noopener">📅 Book a call</a>
+    <a class="btn" href="https://youtu.be/0618XKFXwXg" target="_blank" rel="noopener">🎥 Watch demo</a>
+    <a class="btn" href="https://www.linkedin.com/in/vipin-k-v/" target="_blank" rel="noopener">💼 LinkedIn</a>
+  </div>
+</header>
+
+<section>
+  <div class="eyebrow">THE PROBLEM</div>
+  <h2>Off-road work is short on labor and long on waste.</h2>
+  <p class="body">Orchards blanket-spray pesticide on every tree. Demining, mining and construction still put people in harm's way. Most autonomy is built for roads and leans on RTK-GPS and LiDAR, which are expensive and fail under canopy, in valleys and on soft ground.</p>
+  <div class="stats">
+    <div class="stat"><div class="n">50–70%</div><div class="l">pesticide cost saved with targeted spray</div></div>
+    <div class="stat"><div class="n">&lt;70 ms</div><div class="l">perception-to-action on Jetson AGX Orin</div></div>
+    <div class="stat"><div class="n">0</div><div class="l">RTK base stations or LiDAR needed</div></div>
+    <div class="stat"><div class="n">3,000+</div><div class="l">hours of field testing</div></div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">HOW IT WORKS</div>
+  <h2>One platform. Swap the tool, keep the brain.</h2>
+  <div class="grid two">
+    <div class="card"><h3>AUTOMIST 500X <span class="tag">Hardware</span></h3><p>Center-pivot articulated chassis that keeps traction and odometry on soft terrain where skid-steer platforms slip. Modular tool deck for sprayers, sensors and arms.</p></div>
+    <div class="card"><h3>AIR-VFGDAS <span class="tag">Autonomy</span></h3><p>Vision-language advisory layer, a 30 Hz reactive planner and a safety cage. Runs on the edge with cameras, no RTK or LiDAR.</p></div>
+    <div class="card"><h3>Targeted spraying <span class="tag">Beachhead</span></h3><p>Sees the canopy and sprays only where it's needed. The only targeted orchard sprayer in India today.</p></div>
+    <div class="card"><h3>Safety evidence <span class="tag">Roadmap</span></h3><p>A "black box" that logs every safety decision, built for OEMs and integrators facing new rules for ML in machinery.</p></div>
+  </div>
+  <div class="apps">
+    <span class="chip on">Orchards</span>
+    <span class="chip on">Specialty crops</span>
+    <span class="chip on">Humanitarian demining</span>
+    <span class="chip on">Research platforms</span>
+    <span class="chip">Mining</span>
+    <span class="chip">Construction</span>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">TRACTION</div>
+  <h2>Built, sold and field-tested.</h2>
+  <ul class="proof">
+    <li><span><b>First commercial sale</b>: ₹16 lakh platform order from a chilli farm, outside orchards</span></li>
+    <li><span><b>$100K demining grant</b> from Minesight / Prytula Foundation for HybridAir; top 5 of 80</span></li>
+    <li><span><b>Backed by Forum Ventures</b>; selected for Blueprint at The Engine (MIT)</span></li>
+    <li><span><b>U.S. Congressional Recognition</b> (Rep. Adam Gray, CA-13)</span></li>
+    <li><span><b>Showcased</b> at CES 2026, World Ag Expo and the FIRA USA global launch</span></li>
+    <li><span><b>Draper Demo Day</b>: top 11 of 60</span></li>
+  </ul>
+</section>
+
+<section>
+  <div class="eyebrow">TEAM</div>
+  <h2>Robotics builders, not first-timers.</h2>
+  <div class="people">
+    <div class="person"><div class="nm">Vipin K V</div><div class="rl">Founder &amp; CEO · 12 years in robotics · B.Tech Mechatronics, SRM</div></div>
+    <div class="person"><div class="nm">Vignesh Murugan</div><div class="rl">Co-founder &amp; COO</div></div>
+  </div>
+  <div class="sub">Advisors</div>
+  <div class="people">
+    <div class="person"><div class="nm">Mark DeSantis</div><div class="rl">ex-CEO, Bloomfield Robotics · CMU</div></div>
+    <div class="person"><div class="nm">Mark Theuerkauf</div><div class="rl">22 years at John Deere · ex-AGCO, CNH</div></div>
+    <div class="person"><div class="nm">Nathan Dorn</div><div class="rl">Low Hanging Fruit · California channel partner</div></div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="eyebrow">LET'S TALK</div>
+  <h2>Investors, OEMs, pilot partners, research labs.</h2>
+  <p class="body">We're raising our pre-seed and lining up pilots for 2027. If you build, buy or fund off-road machines, let's talk.</p>
+  <div class="cta">
+    <a class="btn primary" href="https://calendly.com/vipinvinay830/autogenbot_introduction" target="_blank" rel="noopener">📅 Book a call</a>
+    <a class="btn" href="https://docsend.com/v/5mj8g/autogenbot_pitch" target="_blank" rel="noopener">📊 Investor deck</a>
+    <a class="btn" href="mailto:vipin@air-bots.in">✉️ vipin@air-bots.in</a>
+  </div>
+</section>
+
+<footer>
+  AUTOGENBOT, Inc. (Delaware) · Autogenbot Technologies Pvt Ltd (India)<br>
+  <a href="https://www.autogenbots.com" target="_blank" rel="noopener">www.autogenbots.com</a>
+</footer>
+
+</div>
 </body>
 </html>
