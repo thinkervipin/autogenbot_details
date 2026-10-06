@@ -73,7 +73,13 @@ p.body{color:var(--muted);max-width:640px}
 .proof li{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;color:var(--muted);background:var(--card-2);border:1px solid var(--border);border-radius:10px;padding:12px 14px}
 .proof li::before{content:'';flex:none;width:7px;height:7px;margin-top:8px;border-radius:50%;background:var(--primary)}
 .proof li.hi{border-color:rgba(16,185,129,.5);background:rgba(16,185,129,.07)}
-.lois{display:inline-flex;align-items:baseline;gap:10px;margin-top:22px;padding:10px 18px;border-radius:12px;border:1px solid rgba(16,185,129,.45);background:rgba(16,185,129,.08)}
+.hl{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:stretch;margin-top:22px}
+.raise{display:inline-flex;align-items:center;gap:9px;padding:10px 18px;border-radius:12px;text-decoration:none;font-family:var(--display);font-size:1.05rem;color:#04120c;background:#facc15;border:1px solid #facc15;transition:transform .2s}
+.raise:hover{transform:translateY(-1px)}
+.raise i{width:8px;height:8px;border-radius:50%;background:#04120c;animation:pulse 1.6s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.25}}
+@media(prefers-reduced-motion:reduce){.raise i{animation:none}}
+.lois{display:inline-flex;align-items:baseline;gap:10px;padding:10px 18px;border-radius:12px;border:1px solid rgba(16,185,129,.45);background:rgba(16,185,129,.08)}
 .lois .n{font-family:var(--display);font-size:1.7rem;color:var(--primary);line-height:1}
 .lois .l{font-size:14px;color:var(--muted)}
 .proof b{color:var(--text);font-weight:600}
@@ -101,7 +107,10 @@ footer a:hover{color:var(--primary)}
   <div class="badge"><i></i>Blueprint at The Engine · Showcase 2026</div>
   <h1>The infrastructure for <em>off&#8209;road mobility</em>.</h1>
   <p class="lede">One <b>modular Physical AI platform</b> for <b>defence and agriculture</b>. Swap the tool, keep the chassis and the vision-first autonomy.</p>
-  <div class="lois"><span class="n">$1.4M</span><span class="l">in signed LOIs</span></div>
+  <div class="hl">
+    <div class="lois"><span class="n">$1.4M</span><span class="l">in signed LOIs</span></div>
+    <a class="raise" href="https://calendly.com/vipinvinay830/autogenbot_introduction" target="_blank" rel="noopener"><i></i>Raising pre-seed now →</a>
+  </div>
   <div class="cta">
     <a class="btn primary" href="https://calendly.com/vipinvinay830/autogenbot_introduction" target="_blank" rel="noopener">📅 Book a call</a>
     <a class="btn" href="https://youtu.be/0618XKFXwXg" target="_blank" rel="noopener">🎥 Watch demo</a>
@@ -169,9 +178,9 @@ footer a:hover{color:var(--primary)}
 </section>
 
 <section class="closing">
-  <div class="eyebrow">LET'S TALK</div>
-  <h2>Investors, OEMs, pilot partners, research labs.</h2>
-  <p class="body">We're raising our pre-seed and lining up pilots for 2027. If you build, buy or fund off-road machines, let's talk.</p>
+  <div class="eyebrow">NOW RAISING</div>
+  <h2>We're raising our pre-seed.</h2>
+  <p class="body">Backing the infrastructure for off-road mobility, with $1.4M in LOIs across defence and agriculture. Investors, OEMs and pilot partners: let's talk.</p>
   <div class="cta">
     <a class="btn primary" href="https://calendly.com/vipinvinay830/autogenbot_introduction" target="_blank" rel="noopener">📅 Book a call</a>
     <a class="btn" href="https://docsend.com/v/5mj8g/autogenbot_pitch" target="_blank" rel="noopener">📊 Investor deck</a>
