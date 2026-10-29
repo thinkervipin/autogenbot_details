@@ -76,7 +76,7 @@ p.body{color:var(--muted);max-width:640px}
 .hl{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:stretch;margin-top:22px}
 .raise{display:inline-flex;align-items:center;gap:9px;padding:10px 18px;border-radius:12px;text-decoration:none;font-family:var(--display);font-size:1.05rem;color:#04120c;background:var(--primary);border:1px solid var(--primary);box-shadow:0 0 18px rgba(16,185,129,.35);transition:transform .2s}
 .raise:hover{transform:translateY(-1px)}
-.raise i{width:8px;height:8px;border-radius:50%;background:#04120c;animation:pulse 1.6s ease-in-out infinite}
+.raise i{width:8px;height:8px;border-radius:50%;background:#04120c;animation:none}
 @keyframes pulse{50%{opacity:.25}}
 @media(prefers-reduced-motion:reduce){.raise i{animation:none}}
 .lois{display:inline-flex;align-items:baseline;gap:10px;padding:10px 18px;border-radius:12px;border:1px solid rgba(16,185,129,.45);background:rgba(16,185,129,.08)}
@@ -91,6 +91,13 @@ p.body{color:var(--muted);max-width:640px}
 .person .rl{font-size:13.5px;color:var(--muted)}
 .sub{font-size:13px;color:var(--dim);margin-top:22px;letter-spacing:.04em;text-transform:uppercase}
 
+.partner{margin-top:28px;padding:30px 20px;border:1px solid rgba(16,185,129,.45);border-radius:16px;background:linear-gradient(180deg,rgba(16,185,129,.10),rgba(16,185,129,.02))}
+.partner .cta{justify-content:flex-start}
+.offer{display:grid;gap:10px;margin-top:20px}
+@media(min-width:620px){.offer{grid-template-columns:1fr 1fr}}
+.offer .o{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:13px 15px;display:flex;flex-direction:column;gap:2px}
+.offer .o b{font-weight:600}
+.offer .o span{font-size:14px;color:var(--muted)}
 .closing{text-align:center;border-bottom:none;padding-bottom:28px}
 .closing p.body{margin:0 auto}
 footer{text-align:center;color:var(--dim);font-size:13px;padding:24px 0 44px}
@@ -106,10 +113,10 @@ footer a:hover{color:var(--primary)}
   <div class="logo">AUTOGENBOT</div>
   <div class="badge"><i></i>Blueprint at The Engine · Showcase 2026</div>
   <h1>The infrastructure for <em>off&#8209;road mobility</em>.</h1>
-  <p class="lede">One <b>modular Physical AI platform</b> for <b>defence and agriculture</b>. Swap the tool, keep the chassis and the vision-first autonomy.</p>
+  <p class="lede">We help companies <b>build off-road machines faster</b>, with our <b>modular hardware platform</b> and <b>vision-first autonomy software</b>. Proven in <b>defence and agriculture</b>.</p>
   <div class="hl">
     <div class="lois"><span class="n">$1.4M</span><span class="l">in signed LOIs</span></div>
-    <a class="raise" href="https://calendly.com/vipinvinay830/autogenbot_introduction" target="_blank" rel="noopener"><i></i>Raising pre-seed now →</a>
+    <a class="raise" href="https://calendly.com/vipinvinay830/autogenbot_introduction" target="_blank" rel="noopener"><i></i>Raising soon →</a>
   </div>
   <div class="cta">
     <a class="btn primary" href="https://calendly.com/vipinvinay830/autogenbot_introduction" target="_blank" rel="noopener">📅 Book a call</a>
@@ -117,6 +124,24 @@ footer a:hover{color:var(--primary)}
     <a class="btn" href="https://www.linkedin.com/in/vipin-k-v/" target="_blank" rel="noopener">💼 LinkedIn</a>
   </div>
 </header>
+
+<section class="partner">
+  <div class="eyebrow">BUILDING AN OFF-ROAD MACHINE?</div>
+  <h2>Plug into our stack instead of building it from scratch.</h2>
+  <p class="body">If you're an off-road company in defence, agriculture, mining or construction, we can supply the hardware, the software, or both.</p>
+  <div class="offer">
+    <div class="o"><b>Teleoperation pipeline</b><span>Low-latency remote driving and video for field machines</span></div>
+    <div class="o"><b>VR control</b><span>Immersive remote operation for hazardous jobs</span></div>
+    <div class="o"><b>Autonomy stack</b><span>Vision-first perception, planning and a safety cage</span></div>
+    <div class="o"><b>Modular base platform</b><span>Articulated chassis to build your tool on</span></div>
+    <div class="o"><b>Safety logging</b><span>"Black box" record of every safety decision</span></div>
+    <div class="o"><b>Integration support</b><span>From prototype to field pilot with our team</span></div>
+  </div>
+  <div class="cta">
+    <a class="btn primary" href="mailto:vipin@air-bots.in?subject=Off-road%20partnership%20-%20Autogenbot">✉️ Contact us</a>
+    <a class="btn" href="https://calendly.com/vipinvinay830/autogenbot_introduction" target="_blank" rel="noopener">📅 Book a call</a>
+  </div>
+</section>
 
 <section>
   <div class="eyebrow">THE PROBLEM</div>
@@ -178,12 +203,12 @@ footer a:hover{color:var(--primary)}
 </section>
 
 <section class="closing">
-  <div class="eyebrow">NOW RAISING</div>
-  <h2>We're raising our pre-seed.</h2>
-  <p class="body">Backing the infrastructure for off-road mobility, with $1.4M in LOIs across defence and agriculture. Investors, OEMs and pilot partners: let's talk.</p>
+  <div class="eyebrow">RAISING SOON</div>
+  <h2>Our pre-seed opens soon.</h2>
+  <p class="body">We're building the infrastructure for off-road mobility, with $1.4M in LOIs across defence and agriculture. Investors, OEMs and off-road companies: let's talk.</p>
   <div class="cta">
     <a class="btn primary" href="https://calendly.com/vipinvinay830/autogenbot_introduction" target="_blank" rel="noopener">📅 Book a call</a>
-    <a class="btn" href="https://docsend.com/v/5mj8g/autogenbot_pitch" target="_blank" rel="noopener">📊 Investor deck</a>
+    <a class="btn" href="https://docsend.com/v/5mj8g/autogenbot_the_engine" target="_blank" rel="noopener">📊 Investor deck</a>
     <a class="btn" href="mailto:vipin@air-bots.in">✉️ vipin@air-bots.in</a>
   </div>
 </section>
